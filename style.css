@@ -25,10 +25,12 @@
         header {
             text-align: center;
             margin-bottom: 30px;
-            padding: 30px;
+            padding: 10px;
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(220, 38, 38, 0.1);
+            width: 100%;
+            /* height: 5rem; */
         }
 
         .logo-section {
@@ -39,7 +41,7 @@
             margin-bottom: 15px;
         }
 
-        .logo-placeholder {
+        /* .logo-placeholder {
             width: 80px;
             height: 80px;
             background: linear-gradient(135deg, #dc2626, #991b1b);
@@ -50,13 +52,18 @@
             font-size: 36px;
             color: white;
             box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
-        }
+        } */
 
-        h1 {
+        .navbar-brand {
             color: #dc2626;
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 1.6em;
+            font-weight: 400;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         font-family: 'mrs sheppards', sans-serif;
         }
 
         .subtitle {
@@ -93,6 +100,7 @@
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
+            
         }
 
         .mode-btn.active {
