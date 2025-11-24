@@ -108,10 +108,10 @@
             return `
                 <div class="invoice-header">
                     <div class="company-info">
-                        <div class="company-name">Cuisine Fantastique</div>
-                        <p style="font-size: 10px; color: #666;">Premium Catering Services</p>
+                        <div class="company-name"><a href="#top" class="navbar-brand"><span>Cuisine</span> <span> Fantastique</span></a></div>
+                       
                     </div>
-                    <div class="invoice-title">INVOICE</div>
+                    
                 </div>
 
                 <div class="invoice-details">
