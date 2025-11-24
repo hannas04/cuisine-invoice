@@ -1,5 +1,4 @@
-
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -137,7 +136,7 @@
             padding: 12px;
             border: 2px solid #e5e5e5;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px; /* Prevents iOS auto-zoom on input focus */
             transition: all 0.3s ease;
         }
 
@@ -465,4 +464,3 @@
             header, .mode-selector, .input-section, .download-btn { display: none; }
             #invoice-preview { box-shadow: none; }
         }
-   
