@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisine Fantastique - Invoice Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="logo-placeholder">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div>
+                    <h1>Cuisine Fantastique</h1>
+                    <p class="subtitle">Premium Catering Services</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="mode-selector">
+            <button class="mode-btn active" onclick="switchMode('text')">
+                <i class="fas fa-align-left"></i> Text Input Mode
+            </button>
+            <button class="mode-btn" onclick="switchMode('form')">
+                <i class="fas fa-edit"></i> Form Input Mode
+            </button>
+        </div>
+
+        <div id="text-mode" class="input-section active">
+            <div class="form-group">
+                <label><i class="fas fa-clipboard-list"></i> Paste Event & Menu Details</label>
+                <textarea id="text-input" placeholder="EVENT DETAILS
+- Date: 2026-07-07
+- Guests: 8
+- Location Area: Mainland
+- Hall/Address: Landmark
+- Contact Email: client@example.com
+
+SELECTED MENU ITEMS:
+* Spicy Chicken Burger - 5000 - 10
+* Bottled Water (Large) - 500 - 20
+* Apple Pie Bites - 1500 - 8"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><i class="fas fa-truck"></i> Transportation Fee (₦)</label>
+                    <input type="number" id="text-transport" value="0" min="0">
+                </div>
+            </div>
+            <button class="generate-btn" onclick="generateFromText()">
+                <i class="fas fa-file-invoice"></i> Generate Invoice
+            </button>
+        </div>
+
+        <div id="form-mode" class="input-section">
+            <h3 style="color: #dc2626; margin-bottom: 20px;"><i class="fas fa-calendar-alt"></i> Event Details</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Event Date</label>
+                    <input type="date" id="event-date" required>
+                </div>
+                <div class="form-group">
+                    <label>Number of Guests</label>
+                    <input type="number" id="guests" min="1" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Location Area</label>
+                    <input type="text" id="location" placeholder="e.g., Mainland" required>
+                </div>
+                <div class="form-group">
+                    <label>Hall/Address</label>
+                    <input type="text" id="address" placeholder="Event venue address" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Contact Email</label>
+                <input type="email" id="email" placeholder="client@example.com" required>
+            </div>
+
+            <h3 style="color: #dc2626; margin: 30px 0 20px;"><i class="fas fa-utensils"></i> Menu Items</h3>
+            <div class="menu-items" id="menu-items">
+                <div class="menu-item">
+                    <input type="text" placeholder="Item name" class="item-name" required>
+                    <input type="number" placeholder="Price (₦)" class="item-price" min="0" required>
+                    <input type="number" placeholder="Quantity" class="item-qty" min="1" value="1" required>
+                    <button class="remove-btn" onclick="removeItem(this)"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+            <button class="add-btn" onclick="addMenuItem()">
+                <i class="fas fa-plus"></i> Add Menu Item
+            </button>
+
+            <div class="form-group" style="margin-top: 30px;">
+                <label><i class="fas fa-truck"></i> Transportation Fee (₦)</label>
+                <input type="number" id="form-transport" value="0" min="0">
+            </div>
+
+            <button class="generate-btn" onclick="generateFromForm()">
+                <i class="fas fa-file-invoice"></i> Generate Invoice
+            </button>
+        </div>
+
+        <div id="invoice-preview">
+            <div id="invoice-content"></div>
+            <div class="download-options">
+                <button class="download-option-btn pdf-btn" onclick="downloadPDF()">
+                    <i class="fas fa-file-pdf"></i> Download as PDF
+                </button>
+                <button class="download-option-btn" onclick="downloadImage()">
+                    <i class="fas fa-image"></i> Download as Image
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
